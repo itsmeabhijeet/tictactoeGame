@@ -46,19 +46,17 @@ wsh & msi
 ------------------------------------------------------------------------------------------------------------------------------------
 Steps to run this project:
 
-Pre-requisites:
-1. Java version : 1.8.0_121
+
+1. Java version used for this project 1.8 and above.
+
 2. Gradle version: 4.10.2
 
-3.Download this zip and unzip at a location and navigate to root path.
-  Run with already defined installed Gradle
-  
-4.Just enter gradle run in your terminal from the project root.
+3.Download the project as zip and unzip at a location and navigate to root path and just enter "gradle run" in your terminal from the project root.
 
-5.Run with gradle shell or bat (preconfigured gradlewrapper)
+4.Alternatively, run with gradle shell or bat (preconfigured gradlewrapper)
 Just enter gradlew run or gradlew.bat run in your terminal from the project root.
 
-6. Also if using any IDE like Eclipse : Import the project as gradle project and then do gradle build first and then simply 
+5. Also if you are using any IDE like Eclipse : Import the project as gradle project and then do gradle build first and then simply 
 execute the main method as Run as Java application. 
 --------------------------------------------------------------------------------------------------------------------------------------
 Design Description
@@ -85,14 +83,14 @@ HumanPlayer : This class depicts a human player move.
  
 ComputerPlayer : This class depicts a compute class. For now there is not much intelligence given to this class, it simply returns a move based on the  empty positions of the board.
 
-PlayerFactory  : Factory created for Different players like human or computer. Since the move made are random for every game, using PlayerConfiguration class factory is used. Usage: Factory  Design pattern. Other patterns are also used in the application
+PlayerFactory  : It returns the instance of the player like Human or computer based on the PlayerConfiguration.
 
 
 TicTacToeBoardField : This class is used to do a validation for the board size based on the configuration passed. Along with this it is used to register a valid move made and stores it.
 
-TicTacToeConfiguration  : This created the current instance of the game holding the board size and players list.
+TicTacToeConfiguration  : This creates the current instance of the game holding the board size and players list.
 
-TicTacToeMoveValidator : All the actions like to validate a current move , validate win again row, column or diagonal are performed by this class , hence named validator.
+TicTacToeMoveValidator : All the actions like  1. validate a current move , 2.validate win against row, column or diagonal are performed by this class , hence named validator.
 
 TicTacToeGameController  : This is the main container class which uses reference of the IBoardConsoleSystem and TicTacToeBoardField. It creates the game using the configuration and starts the play. It calls the relevant class for validation and winning moves. Sends proper message to console using IBoardConsoleSystem implementation.
 
