@@ -51,7 +51,8 @@ Pre-requisites:
 2. Gradle version: 4.10.2
 
 3.Download this zip and unzip at a location and navigate to root path.
-  Run with alreday defined installed Gradle
+  Run with already defined installed Gradle
+  
 4.Just enter gradle run in your terminal from the project root.
 
 5.Run with gradle shell or bat (preconfigured gradlewrapper)
