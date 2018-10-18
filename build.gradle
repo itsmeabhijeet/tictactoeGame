@@ -23,6 +23,7 @@ repositories {
     jcenter()
 }
 
+// In this section you declare where to find the dependencies of your project
 dependencies {
 
 	testCompile 'junit:junit:4.12'
@@ -37,5 +38,5 @@ run {
 
 mainClassName = "PlayMe"
 
-// In this section you declare where to find the dependencies of your project
+
 
