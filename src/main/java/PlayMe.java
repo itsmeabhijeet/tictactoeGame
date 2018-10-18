@@ -2,7 +2,6 @@
  * 
  */
 
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -57,9 +56,6 @@ public class PlayMe {
 		try {
 			properties.load(inputStream);
 		} catch (IOException e1) {
-			System.out.println("could not load properties");
-		} catch (Exception e2) {
-			System.out.println("Exception *** " + e2.getStackTrace().toString() + "** " + e2);
 			System.out.println("could not load properties");
 		} finally {
 			if (inputStream != null) {
