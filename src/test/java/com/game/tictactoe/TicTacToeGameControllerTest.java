@@ -89,6 +89,15 @@ public class TicTacToeGameControllerTest {
 
 	}
 
+	@Test(expected = NullPointerException.class)
+	public void play_CalledWithMockedObject_ShouldReturnNullPointer() throws Exception {
+		// Arrange
+		TicTacToeGameController controller = new TicTacToeGameController(consoleSystem);
+		// Act
+		controller.play();
+
+	}
+
 	@After
 	public void tearDown() {
 		System.setErr(sysErr);

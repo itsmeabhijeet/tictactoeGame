@@ -21,8 +21,7 @@ public class HumanPlayer extends Player {
 	@Override
 	public Point makeMove(IBoardConsoleSystem consoleSystem, char[][] positions) throws IOException {
 		String input = consoleSystem.getUserInput();
-		input = input.trim();
-		String[] inputString = input.split(",");
+		String[] inputString = input.trim().split(",");
 		Point result;
 		try {
 			int x = Integer.parseInt(inputString[0]) - 1;
@@ -41,6 +40,9 @@ public class HumanPlayer extends Player {
 			consoleSystem.displayErrorMessage("wrong input format please enter [row],[column] i.e. 2,3");
 			result = makeMove(consoleSystem, positions);
 		} catch (ArrayIndexOutOfBoundsException e1) {
+			consoleSystem.displayErrorMessage("wrong input format please enter [row],[column] i.e. 2,3");
+			result = makeMove(consoleSystem, positions);
+		} catch (NullPointerException e2) {
 			consoleSystem.displayErrorMessage("wrong input format please enter [row],[column] i.e. 2,3");
 			result = makeMove(consoleSystem, positions);
 		}
