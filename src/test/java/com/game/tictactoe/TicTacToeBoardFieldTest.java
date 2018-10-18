@@ -15,9 +15,12 @@ public class TicTacToeBoardFieldTest {
 	@Test(expected = IllegalArgumentException.class)
 	public void constructore_InvalidSizeLessThan3_shouldReturnError() {
 
+		//Assert
+	
 		TicTacToeBoardField field= new TicTacToeBoardField(2);
 	}
 	
+	@SuppressWarnings("unused")
 	@Test(expected = IllegalArgumentException.class)
 	public void constructore_InvalidSizeMoreThan10_shouldReturnError() {
 

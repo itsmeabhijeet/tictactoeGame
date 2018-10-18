@@ -21,7 +21,11 @@ public class PlayerFactoryTest {
 	@Test
 	public void getPlayer_ValidHumanPlayerConfiguration_ShouldReturnHumanPlayer() {
 
+		//arrange
+		//act
 		Player player = PlayerFactory.getPlayer(new PlayerConfiguration(PlayerConfiguration.HUMAN, 'P'));
+		
+		//assert
 		assertThat(player).isInstanceOf(HumanPlayer.class).hasFieldOrPropertyWithValue("symbol", 'P');
 	}
 

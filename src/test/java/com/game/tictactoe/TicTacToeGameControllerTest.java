@@ -35,13 +35,19 @@ public class TicTacToeGameControllerTest {
 	@SuppressWarnings("unused")
 	@Test
 	public void constructorCalled_NullValuePassed_ShouldReturnErrorMessage() throws Exception {
+		//arrange
+		//act
 		TicTacToeGameController controller = new TicTacToeGameController(null);
+		//assert
 		assertThat(errContent.toString()).contains("IO System was not set using SystemIO as default");
 	}
 
 	@Test
 	public void constructorCalled_validMockedObject_ShouldReturnSameValidObject() throws Exception {
+		//arrange
+		//act
 		TicTacToeGameController controller = new TicTacToeGameController(consoleSystem);
+		//assert
 		assertThat(controller.consoleSystem).isEqualTo(consoleSystem);
 	}
 	

@@ -52,18 +52,24 @@ public class PropertyFileConfigReaderTest {
 	@Test
 	public void read_passNullConfiguration_shouldPrintOnceErrorMessage() throws Exception {
 
+		//Arrange
 		PropertyFileConfigReader configReader = new PropertyFileConfigReader(null);
+		//Act
 		@SuppressWarnings("unused")
 		TicTacToeConfiguration config = configReader.read(consoleSystem);
 
+		//Assert
 		verify(consoleSystem, atLeastOnce()).displayErrorMessage(any());
 	}
 
 	@Test
 	public void read_emptyPropertFile_ShouldReturnDefaultBoardSize() throws Exception {
+		//Arrange
 		Properties properties = new Properties();
+		//Act
 		PropertyFileConfigReader reader = new PropertyFileConfigReader(properties);
 		int playgroundSize = reader.readPlaygroundSize(consoleSystem);
+		//Assert
 		assertEquals(PropertyFileConfigReader.DEFAULT_PLAYGROUND_SIZE, playgroundSize);
 		verify(consoleSystem, atLeastOnce()).displayErrorMessage(any());
 	}

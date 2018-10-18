@@ -39,7 +39,7 @@ public class TicTacToeMoveValidator {
 		}
 		// check the other diagonal
 		int i = 0;
-		for (int j = positions.length-1; j > 0; j--) {
+		for (int j = positions.length-1; j >= 0; j--) {
 			if (positions[i++][j] == symbol)
 				count++;
 			else

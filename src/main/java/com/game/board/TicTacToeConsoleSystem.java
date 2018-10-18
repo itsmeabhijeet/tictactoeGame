@@ -49,7 +49,7 @@ public class TicTacToeConsoleSystem implements IBoardConsoleSystem {
 		StringBuilder line = new StringBuilder();
 		line.append(rowNumber + 1);
 		for (int i = 0; i < columns; i++) {
-			char fieldValue = fieldValues[i][rowNumber];
+			char fieldValue = fieldValues[rowNumber][i];
 			if (fieldValue == '\u0000') {
 				fieldValue = ' ';
 			}
