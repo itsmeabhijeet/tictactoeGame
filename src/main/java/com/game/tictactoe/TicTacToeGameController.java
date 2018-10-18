@@ -88,13 +88,12 @@ public class TicTacToeGameController {
 		try {
 			Point move;
 			do {
-				consoleSystem.displayInfoMessage("Player " + currentPlayer.getSymbol() + " make your move");
+				consoleSystem.displayInfoMessage("Player " + currentPlayer.getSymbol() + " make your move e.g row,column");
 				move = currentPlayer.makeMove(consoleSystem, gameField.getFields());
 			} while (!gameField.setMove(move.x, move.y, currentPlayer.getSymbol()));
 		} catch (IOException e) {
 			consoleSystem.displayErrorMessage(
-					"Player " + currentPlayer.getSymbol() + " has problems with input the game will " + "be canceled");
-			e.printStackTrace();
+					"Player " + currentPlayer.getSymbol() + " has problems with input the game will " + "be cancelled");
 			return false;
 		}
 		return true;

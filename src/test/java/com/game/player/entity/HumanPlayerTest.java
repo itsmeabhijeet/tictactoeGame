@@ -40,7 +40,7 @@ public class HumanPlayerTest {
 		humanPlayer.makeMove(mockConsole, new char[1][1]);
 		//assert
 		verify(mockConsole, times(2)).getUserInput();
-		verify(mockConsole).displayErrorMessage("wrong input format please enter [column],[row] i.E. 2,3");
+		verify(mockConsole).displayErrorMessage("wrong input format please enter [row],[column] i.e. 2,3");
 	}
 
 	@Test

@@ -26,7 +26,7 @@ public class PlayMe {
 		while (true) {
 			gameController.configureGame(configurationReader.read(consoleSystem));
 			gameController.play();
-			consoleSystem.displayInfoMessage("DO you want to Continue Playing [Y/N]");
+			consoleSystem.displayInfoMessage("DO you want to Continue Playing [Y/N]"); 
 			try {
 				String input = consoleSystem.getUserInput();
 				if (input.toUpperCase().contains("N")) {
