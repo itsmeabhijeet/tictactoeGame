@@ -43,3 +43,57 @@ tested and understandable.
 * this includes: asp, bat, class, cmd, com, cpl, dll, exe, fon, hta, ini,
 ins, iw, jar, jsp, js, jse, pif, scr, shs, sh, vb, vbe, vbs, ws, wsc, wsf,
 wsh & msi
+------------------------------------------------------------------------------------------------------------------------------------
+Steps to run this project:
+
+Pre-requisites:
+1. Java version : 1.8.0_121
+2. Gradle version: 4.10.2
+
+3.Download this zip and unzip at a location and navigate to root path.
+  Run with alreday defined installed Gradle
+4.Just enter gradle run in your terminal from the project root.
+
+5.Run with gradle shell or bat (preconfigured gradlewrapper)
+Just enter gradlew run or gradlew.bat run in your terminal from the project root.
+
+6. Also if using any IDE like Eclipse : Import the project as gradle project and then do gradle build first and then simply 
+execute the main method as Run as Java application. 
+--------------------------------------------------------------------------------------------------------------------------------------
+Design Description
+
+
+PlayMe: This is the main class responsible to start the Game (Entry Point). This class actually reads from the given property file and passes those config values to subsequent classes responsible to process the values. The resource file is present inside the resource folder which can be changed before one starts the game.
+
+IBoardConsoleSystem : This interface is used for communication within the program. Creation of board structure or printing any info or
+error message are the task defined within this interface. This is put into an interface because, for now the message is passed to console but lets say tomorrow one wants to print that in UI, a client can implement this interface and can implement in its own way.
+
+TicTacToeConsoleSystem : This is the implementation class of IBoardConsoleSystem. Since the objective now is to print everything in console, it uses System.info, System.err and System.out to do the job.
+
+IConfigurationReader : This interface is used to read configuration like size of board and number of players and their symbols.
+This is created as interface as different class can implement it based on the way configuration is passed like property file
+or gradle or yml file or may be REST call.
+ 
+PropertyFileConfigReader :This class is the IConfigurationReader implementation using config.property file kept under resources folder.
+
+Player  : This is an abstract class as certain things like the character associated with every player and the behavior or action 
+like make move is common between a human player or computer player.
+
+
+HumanPlayer : This class depicts a human player move. 
+ 
+ComputerPlayer : This class depicts a compute class. For now there is not much intelligence given to this class, it simply returns a move based on the  empty positions of the board.
+
+PlayerFactory  : Factory created for Different players like human or computer. Since the move made are random for every game, using PlayerConfiguration class factory is used. Usage: Factory  Design pattern. Other patterns are also used in the application
+
+
+TicTacToeBoardField : This class is used to do a validation for the board size based on the configuration passed. Along with this it is used to register a valid move made and stores it.
+
+TicTacToeConfiguration  : This created the current instance of the game holding the board size and players list.
+
+TicTacToeMoveValidator : All the actions like to validate a current move , validate win again row, column or diagonal are performed by this class , hence named validator.
+
+TicTacToeGameController  : This is the main container class which uses reference of the IBoardConsoleSystem and TicTacToeBoardField. It creates the game using the configuration and starts the play. It calls the relevant class for validation and winning moves. Sends proper message to console using IBoardConsoleSystem implementation.
+
+
+
